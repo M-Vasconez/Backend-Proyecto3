@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "Matias",
+    "password": "DAWM1290",
+    "database": "CFL",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  },
+  "test": {
+    "username": "Matias",
+    "password": "DAWM1290",
+    "database": "CFL",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  },
+  "production": {
+    "username": "Matias",
+    "password": "DAWM1290",
+    "database": "CFL",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  }
+}
