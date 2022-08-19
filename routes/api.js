@@ -63,8 +63,6 @@ router.get('/posiciones/:temporada', function(req, res, next) {
 router.get('/usuarios', function(req, res, next) {
   	
   Usuario.findAll({  
-    include: [{ model: Equipo, as: 'Equipo',
-      attributes: ["nombre","ubicacion","division","abreviacion","estadio_id","estadio"]}], 
     attributes: { exclude: ["updatedAt","createdAt"] }
 })  
 .then(usuarios => {  
