@@ -7,17 +7,17 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "Matias",
-    "password": "DAWM1290",
-    "database": "CFL",
-    "host": "127.0.0.1",
-    "dialect": "mariadb"
+    "username": "b466531b8cea09",
+    "password": "f6d40081",
+    "database": "heroku_3e3c68ffd3bdb26",
+    "host": "us-cdbr-east-06.cleardb.net",
+    "dialect": "mysql"
   },
   "production": {
-    "username": "Matias",
-    "password": "DAWM1290",
-    "database": "CFL",
-    "host": "127.0.0.1",
-    "dialect": "mariadb"
+    "username": "b466531b8cea09",
+    "password": "f6d40081",
+    "database": "heroku_3e3c68ffd3bdb26",
+    "host": "us-cdbr-east-06.cleardb.net",
+    "dialect": "mysql"
   }
 }
