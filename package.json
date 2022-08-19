@@ -20,5 +20,10 @@
   },
   "devDependencies": {
     "faker": "^5.5.3"
-  }
+  },
+  "engines": {
+    "node": ">=16.16.0",
+    "npm": ">= 8.10"
+  },
+  "description": "backend for ionic app"
 }
