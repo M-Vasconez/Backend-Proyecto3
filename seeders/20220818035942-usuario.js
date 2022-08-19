@@ -1,4 +1,4 @@
-var faker = require("faker");
+//var faker = require("faker");
 'use strict';
 
 module.exports = {
@@ -8,13 +8,13 @@ module.exports = {
 
     for (let i = 0; i < 3000; i++){
       await queryInterface.bulkInsert('usuarios', [{ 
-        nombre: faker.name.firstName(),
-        apellido: faker.name.lastName(),
-        email: faker.internet.email(),
-        password: faker.internet.password(),
-        equipo_id: lista_equipos[Math.floor(Math.random() * 9)],
-        createdAt: fecha,  
-        updatedAt: fecha,  
+        // nombre: faker.name.firstName(),
+        // apellido: faker.name.lastName(),
+        // email: faker.internet.email(),
+        // password: faker.internet.password(),
+        // equipo_id: lista_equipos[Math.floor(Math.random() * 9)],
+        // createdAt: fecha,  
+        // updatedAt: fecha,  
       }], {}); 
   } 
   },
