@@ -93,17 +93,30 @@ router.get('/juegos', function(req, res, next) {
 .catch(error => res.status(400).send(error)) 
 });
 
-router.get('/juegos/:semana', function(req, res, next) {
+// router.get('/juegos/:semana', function(req, res, next) {
+//   Juego.findAll({  
+//     attributes: { exclude: ["updatedAt","createdAt"] },
+//     where:{"semana":req.params.semana}
+// })  
+// .then(juegos => {  
+//   res.json(juegos)
+// })    
+// .catch(error => res.status(400).send(error)) 
+// });
+
+router.get('/juegos/:equipo_id', function(req, res, next) {
+  const { Op } = require("sequelize");
   Juego.findAll({  
     attributes: { exclude: ["updatedAt","createdAt"] },
-    where:{"semana":req.params.semana}
+    where:{
+      [Op.or] : [ {"equipo1_id": req.params.equipo_id},
+    {"equipo2_id": req.params.equipo_id} ]}
 })  
 .then(juegos => {  
   res.json(juegos)
 })    
 .catch(error => res.status(400).send(error)) 
 });
-
 
 
 
