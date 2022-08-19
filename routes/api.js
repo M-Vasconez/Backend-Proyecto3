@@ -5,7 +5,8 @@ const { Sequelize, Op } = require('sequelize');
 const { sequelize } = require('../models');
 const Equipo = require('../models').equipo; 
 const Posicion = require('../models').posicion;
-const Usuario = require('../models').usuario;  
+const Usuario = require('../models').usuario;
+const Juego = require('../models').juego;  
 
 
 router.get('/equipos', function(req, res, next) {
@@ -83,6 +84,28 @@ Usuario.findOne({
 })  
 .catch(error => res.status(400).send(error)) 
 });
+
+router.get('/juegos', function(req, res, next) {
+  Juego.findAll({  
+    attributes: { exclude: ["updatedAt","createdAt"] }
+})  
+.then(juegos => {  
+  res.json(juegos)
+})    
+.catch(error => res.status(400).send(error)) 
+});
+
+router.get('/juegos/:semana', function(req, res, next) {
+  Juego.findAll({  
+    attributes: { exclude: ["updatedAt","createdAt"] },
+    where:{"semana":req.params.semana}
+})  
+.then(juegos => {  
+  res.json(juegos)
+})    
+.catch(error => res.status(400).send(error)) 
+});
+
 
 
 
