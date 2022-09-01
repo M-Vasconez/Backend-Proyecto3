@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Proyecto 3 - Endpoint tutorial</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Proyecto 3 - Endpoint tutorial</h1>
+
+    <h2>Get</h2>
+    <input type="button" onclick="location.href='./api/juegos';" value="GET">
+    <span> LLama a una base NoSQL en la que se muestran todos los juegos</span> <br><br>
+
+    <input type="button" onclick="location.href='./api/usuario';" value="GET">
+    <spa> LLama a una base SQL en la que se muestran todos los usuarios</spa> <br><br>
+
+    <input type="button" onclick="location.href='./api/usuarios/14';" value="GET">
+    <spa> LLama a una base SQL en la que se muestran el usuario de id 14</spa> <br><br>
+    
+    <input type="button" onclick="location.href='./api/posiciones/';" value="GET">
+    <spa> LLama a una base SQL en la que se muestran todas las posiciones posibles</spa> <br><br>
+
+    <input type="button" onclick="location.href='./api/posiciones/2021';" value="GET">
+    <spa> LLama a una base SQL en la que se muestran las posiciones de la temporada 2021</spa> <br><br>
+
+    <input type="button" onclick="location.href='./api/equipos';" value="GET">
+    <spa> LLama a una base SQL en la que se muestran todos los equipos</spa> <br><br>
+
+    <input type="button" onclick="location.href='./api/equipos/2';" value="GET">
+    <spa> LLama a una base SQL en la que se muestran el equipo con id 2</spa> <br><br>
+
   </body>
 </html>

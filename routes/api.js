@@ -6,7 +6,8 @@ const { sequelize } = require('../models');
 const Equipo = require('../models').equipo; 
 const Posicion = require('../models').posicion;
 const Usuario = require('../models').usuario;
-const Juego = require('../models').juego;  
+const Juego = require('../models').juego;
+const axios = require('axios');  
 
 
 router.get('/equipos', function(req, res, next) {
@@ -83,14 +84,24 @@ Usuario.findOne({
 .catch(error => res.status(400).send(error)) 
 });
 
-router.get('/juegos', function(req, res, next) {
-  Juego.findAll({  
-    attributes: { exclude: ["updatedAt","createdAt"] }
-})  
-.then(juegos => {  
-  res.json(juegos)
-})    
-.catch(error => res.status(400).send(error)) 
+// router.get('/juegos', function(req, res, next) {
+//   Juego.findAll({  
+//     attributes: { exclude: ["updatedAt","createdAt"] }
+// })  
+// .then(juegos => {  
+//   res.json(juegos)
+// })    
+// .catch(error => res.status(400).send(error)) 
+// });
+
+router.get('/juegos', (req, res, next) => {
+
+  axios.get(`https://proyecto3-986b7-default-rtdb.firebaseio.com/events.json`)
+  .then( resAxios => {
+      res.json(resAxios.data)
+  })
+  .catch(err => console.log(err))
+
 });
 
 // router.get('/juegos/:semana', function(req, res, next) {
@@ -104,19 +115,19 @@ router.get('/juegos', function(req, res, next) {
 // .catch(error => res.status(400).send(error)) 
 // });
 
-router.get('/juegos/:equipo_id', function(req, res, next) {
-  const { Op } = require("sequelize");
-  Juego.findAll({  
-    attributes: { exclude: ["updatedAt","createdAt"] },
-    where:{
-      [Op.or] : [ {"equipo1_id": req.params.equipo_id},
-    {"equipo2_id": req.params.equipo_id} ]}
-})  
-.then(juegos => {  
-  res.json(juegos)
-})    
-.catch(error => res.status(400).send(error)) 
-});
+// router.get('/juegos/:equipo_id', function(req, res, next) {
+//   const { Op } = require("sequelize");
+//   Juego.findAll({  
+//     attributes: { exclude: ["updatedAt","createdAt"] },
+//     where:{
+//       [Op.or] : [ {"equipo1_id": req.params.equipo_id},
+//     {"equipo2_id": req.params.equipo_id} ]}
+// })  
+// .then(juegos => {  
+//   res.json(juegos)
+// })    
+// .catch(error => res.status(400).send(error)) 
+// });
 
 
 
